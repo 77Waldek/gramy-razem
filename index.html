@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0f1a">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="description" content="Gry Waldka i polecane tytuły. Wybierz grę, skopiuj gotową wiadomość i zaproponuj wspólną rozgrywkę.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gramy Razem z Waldkiem — wybierz grę!">
+<meta property="og:description" content="Waldek posiada te gry — zagraj z nim! Sprawdź listę z opisami i wybierz tytuł do wspólnej gry.">
+<title>Gramy Razem z Waldkiem — zagraj z nim!</title>
+<link rel="preconnect" href="https://shared.fastly.steamstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#090d17;--panel:#131a2a;--panel2:#172133;--line:rgba(170,191,235,.14);--text:#eff3ff;--muted:#a2acc3;--lime:#b9f16a;--violet:#9682ff;--cyan:#67d7df;--orange:#ffc079;--radius:19px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--text);font:400 15px/1.55 'DM Sans',system-ui,sans-serif}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer}button:disabled{cursor:default}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+::selection{background:var(--lime);color:#0a1020}
+.container{width:min(1180px,calc(100% - 40px));margin-inline:auto}
+.site-header{position:relative;z-index:10;background:rgba(9,13,23,.93);border-bottom:1px solid var(--line)}
+.header-wrap{min-height:77px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.logo{display:flex;gap:12px;align-items:center;font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;letter-spacing:-.06em}
+.logo-symbol{width:42px;height:42px;border-radius:14px;background:var(--lime);display:grid;place-items:center;color:#0b1320;box-shadow:0 8px 25px #b9f16a20}
+.logo-symbol svg{width:24px}
+.logo span span{color:var(--lime)}
+.nav-right{display:flex;gap:23px;align-items:center}.nav-right>a:not(.nav-cta){font-size:14px;color:var(--muted);font-weight:700}.nav-right>a:not(.nav-cta):hover{color:var(--text)}
+.nav-cta{padding:11px 17px;border-radius:999px;background:#232e42;border:1px solid #3a4a62;font-weight:700;font-size:13px}
+.nav-cta:hover{background:#303e55}
+.hero{overflow:hidden;position:relative;padding:80px 0 87px;background:radial-gradient(ellipse 46% 100% at 84% 44%,#3f286850,transparent 80%),radial-gradient(ellipse 45% 80% at 70% 100%,#21495c38,transparent 75%)}
+.hero::after{content:'';position:absolute;inset:auto 0 0;height:1px;background:linear-gradient(90deg,transparent,#4a486e,transparent)}
+.hero-layout{display:grid;grid-template-columns:1.14fr .86fr;align-items:center;gap:40px}
+.eyebrow{display:inline-flex;gap:10px;align-items:center;color:var(--lime);text-transform:uppercase;font-size:11px;letter-spacing:.16em;font-weight:700;margin-bottom:21px}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 5px #b9f16a1c}
+h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:'Space Grotesk',sans-serif;letter-spacing:-.055em}
+h1{font-size:clamp(44px,5.5vw,75px);line-height:1.055;max-width:750px;margin:0 0 23px;font-weight:700}h1 em{font-style:normal;color:var(--lime)}
+.hero-copy{font-size:16px;color:#b7c0d2;max-width:525px;margin:0 0 28px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{border:0;display:inline-flex;gap:10px;align-items:center;justify-content:center;border-radius:12px;padding:12px 18px;font-weight:700;transition:transform .15s,background .15s}.btn:hover{transform:translateY(-2px)}.btn-main{background:var(--lime);color:#14200b}.btn-main:hover{background:#d3ff98}.btn-outline{border:1px solid #48506a;background:#181e31;color:var(--text)}.btn-outline:hover{background:#26324a}
+.hero-stats{display:flex;gap:27px;flex-wrap:wrap;margin-top:36px}.stat strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:26px;letter-spacing:-.06em;line-height:1.15}.stat small{color:var(--muted);font-size:12px}.stat-separator{width:1px;background:var(--line)}
+.hero-visual{position:relative;min-height:390px;display:grid;place-items:center}.hero-glow{position:absolute;width:390px;height:320px;border-radius:50%;filter:blur(43px);background:#775fc140;pointer-events:none}
+.deck{width:min(310px,79%);height:345px;position:relative;z-index:1;border-radius:20px;overflow:hidden;background:#273751;border:1px solid #ffffff2e;box-shadow:0 30px 90px #050711a8;transform:rotate(4deg)}
+.deck img{width:100%;height:100%;object-fit:cover}.deck .deck-veil{position:absolute;inset:0;background:linear-gradient(180deg,transparent 33%,#09101cf0 100%)}
+.deck-title{position:absolute;bottom:24px;left:23px;right:18px;font-family:'Space Grotesk';font-weight:700;font-size:22px;line-height:1.12;letter-spacing:-.03em}
+.deck-label{display:block;color:var(--lime);font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.deck-behind{position:absolute;z-index:0;width:235px;height:305px;left:0;top:22px;transform:rotate(-17deg);border-radius:20px;background:linear-gradient(145deg,#42238e,#12243c);border:1px solid #ffffff24;overflow:hidden;box-shadow:0 12px 40px #03061266}
+.deck-behind img{width:100%;height:100%;object-fit:cover;opacity:.65}
+.floating-pill{position:absolute;z-index:2;bottom:21px;right:0;background:#1c2739;border:1px solid #73869e68;box-shadow:0 15px 40px #05081199;border-radius:14px;padding:13px 16px;font-size:13px;font-weight:700;transform:rotate(-5deg)}.floating-pill span{color:var(--lime)}
+.main-section{padding:63px 0 72px}.section-header{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:25px}.section-header h2{font-size:clamp(29px,3vw,41px);line-height:1.15;margin:0 0 9px}.section-header p{color:var(--muted);margin:0;font-size:14px}.section-tag{font-size:11px;color:var(--lime);font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:9px;display:block}
+.featured-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.featured-card{min-height:205px;position:relative;overflow:hidden;background:#1a2439;border:1px solid var(--line);border-radius:var(--radius);isolation:isolate}.featured-card img{height:100%;width:100%;object-fit:cover;position:absolute;inset:0;transition:transform .3s}.featured-card:hover img{transform:scale(1.05)}.featured-card::after{content:'';z-index:0;position:absolute;inset:0;background:linear-gradient(180deg,#09111b05 10%,#09111bea 100%)}.featured-content{z-index:1;position:absolute;left:16px;bottom:15px;right:16px}.featured-content strong{font:700 18px/1.2 'Space Grotesk',sans-serif;letter-spacing:-.04em;display:block;margin-top:9px}.featured-content small{color:#cbd4ea}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 9px;font-size:10px;line-height:1.2;font-weight:700;white-space:nowrap;border:1px solid transparent}
+.pill.coop{color:#d7ffb7;background:#355226aa;border-color:#7baa5c69}.pill.pvp{color:#ffc8b2;background:#683c32ad;border-color:#e48c6966}.pill.multi{color:#c9d2ff;background:#3a427ab8;border-color:#8790cb55}.pill.check{color:#d4d8e4;background:#3c4655bd;border-color:#aeb5c348}
+.browse{padding:10px 0 85px}.browse-heading{margin-bottom:24px}.browse-heading h2{font-size:clamp(30px,3.5vw,44px);margin:0 0 8px}.browse-heading p{color:var(--muted);margin-bottom:0}
+.panel{background:#11192a;border:1px solid var(--line);border-radius:20px;padding:17px;margin-bottom:22px}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:17px}.tab{background:transparent;color:#adb8cc;padding:10px 16px;border-radius:11px;border:1px solid transparent;font-weight:700;font-size:14px}.tab[aria-selected='true']{background:var(--lime);color:#11200a}.tab:not([aria-selected='true']):hover{background:#212c40}.tab .count{opacity:.72;font-size:12px;margin-left:5px}
+.filters{display:flex;flex-wrap:wrap;align-items:center;gap:11px}
+.search-box{position:relative;flex:1 1 250px}.search-box svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;color:#96a6c0;pointer-events:none}.search-box input{width:100%;height:44px;padding:10px 15px 10px 43px;border-radius:11px;border:1px solid #35425c;background:#0d1422;color:var(--text);outline:0}.search-box input::placeholder{color:#94a1b6}.search-box input:focus{border-color:var(--lime);box-shadow:0 0 0 3px #b9f16a18}
+.filters select{height:44px;max-width:100%;color:var(--text);border:1px solid #35425c;border-radius:11px;padding:0 12px;background:#0d1422;min-width:143px}
+.mode-row{display:flex;flex-wrap:wrap;gap:8px;padding-top:15px;border-top:1px solid var(--line);margin-top:15px}.mode-btn{background:#171f32;border:1px solid #2c374d;border-radius:999px;color:#b2bed1;padding:7px 12px;font-size:12px;font-weight:700}.mode-btn[aria-pressed='true']{color:#10200a;background:var(--lime);border-color:var(--lime)}.mode-btn:not([aria-pressed='true']):hover{border-color:#788d9f}
+.list-info{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:18px 1px;color:var(--muted);font-size:13px}.list-info strong{color:var(--text)}.legend{display:flex;align-items:center;gap:6px}.legend svg{width:15px;height:15px;color:var(--orange)}
+.game-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.game-card{background:var(--panel);border:1px solid var(--line);border-radius:17px;overflow:hidden;min-width:0;display:flex;flex-direction:column;transition:border-color .2s,transform .2s;box-shadow:0 5px 20px #0000000b}
+.game-card:hover{border-color:#7083a966;transform:translateY(-3px)}
+.game-image{position:relative;aspect-ratio:16/9;overflow:hidden;background:linear-gradient(135deg,var(--tone,#273956),#151d2e);display:grid;place-items:center}
+.game-image img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:block;z-index:1}.cover-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:7px;z-index:0;color:#e9f0ff}.cover-placeholder svg{height:30px;width:30px;opacity:.68}.cover-placeholder span{font-family:'Space Grotesk';letter-spacing:-.04em;font-weight:700;font-size:25px;opacity:.75}.game-image .corner{position:absolute;right:9px;top:9px;z-index:2;backdrop-filter:blur(6px);background:#102036cc;color:#d5eaff;font-size:10px;font-weight:700;padding:5px 8px;border-radius:7px}.game-image img.failed{display:none}
+.game-body{padding:14px 15px 15px;display:flex;flex:1;flex-direction:column;gap:10px}.game-meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px}.genre{font-size:11px;color:#a6b3c8}.game-title{font:700 17px/1.24 'Space Grotesk',sans-serif;letter-spacing:-.04em;margin:0;overflow-wrap:anywhere}.game-desc{color:#adb8cb;line-height:1.54;font-size:12.5px;margin:0;min-height:59px;flex:1}.game-bottom{border-top:1px solid var(--line);padding-top:11px;display:flex;align-items:center;justify-content:space-between;gap:8px}.small-link{color:#c4d6ee;font-weight:700;font-size:11px;display:inline-flex;align-items:center;gap:3px;white-space:nowrap}.small-link:hover{color:var(--lime)}.copy-btn{font-size:11px;font-weight:700;padding:8px 9px;color:#0e1d0b;background:#b9f16a;border:0;border-radius:8px;white-space:nowrap}.copy-btn:hover{background:#d4ff99}.copy-btn:disabled{opacity:.6}.game-footnote{color:#a6b4ca;font-size:11px;margin-top:-3px}
+.more-wrap{display:flex;justify-content:center;margin-top:27px}.more-wrap button{min-width:220px}
+.empty{grid-column:1/-1;padding:55px 20px;text-align:center;border:1px dashed #58657b;border-radius:18px;background:#101725}.empty strong{font:700 21px 'Space Grotesk';display:block;margin-bottom:8px}.empty p{color:var(--muted);margin:0 0 15px}
+.how-section{background:linear-gradient(130deg,#151d2f,#0e1a24);border-block:1px solid var(--line);padding:62px 0 67px}.how-section h2{font-size:35px;margin-bottom:12px}.how-section .intro{color:var(--muted);max-width:700px}.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:30px}.step{background:#1d2939;border:1px solid #344255;border-radius:17px;padding:25px}.step-n{display:flex;width:37px;height:37px;background:#c4f68b;color:#122012;border-radius:11px;align-items:center;justify-content:center;font:700 16px 'Space Grotesk';margin-bottom:17px}.step h3{font-size:19px;margin-bottom:7px}.step p{font-size:13px;color:#b2c1d4;margin-bottom:0}
+.cta-band{padding:50px 0 56px}.cta-box{border-radius:22px;background:linear-gradient(120deg,#272a54,#14283e);border:1px solid #6573ac65;padding:34px;display:flex;align-items:center;justify-content:space-between;gap:28px}.cta-box h2{font-size:31px;margin:0 0 10px}.cta-box p{color:#c3cbe0;margin:0}.cta-box .btn{flex-shrink:0}
+.corner-ended{background:#872a2a!important;color:#fff!important;letter-spacing:.04em}footer{border-top:1px solid var(--line);padding:25px 0 36px;color:#8291a9;font-size:12px}.footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.toast{position:fixed;bottom:20px;right:20px;z-index:50;padding:13px 18px;border-radius:12px;background:#c8f894;color:#0e1e0b;box-shadow:0 20px 50px #0008;font-weight:700;font-size:13px;max-width:calc(100% - 40px)}[hidden]{display:none!important}
+@media(max-width:1000px){.game-grid,.featured-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.featured-grid .featured-card:last-child{display:none}.hero{padding-top:70px}.hero-visual{min-height:320px}.deck{height:310px;width:270px}.deck-behind{width:205px;height:280px}}
+@media(max-width:730px){.container{width:min(100% - 30px,1180px)}.nav-right>a:not(.nav-cta){display:none}.header-wrap{min-height:66px}.hero{padding:48px 0 55px}.hero-layout{grid-template-columns:1fr}.hero-copy{max-width:600px}.hero-visual{min-height:210px;margin-top:5px;overflow:hidden}.deck{width:210px;height:210px;transform:rotate(5deg)}.deck-behind{left:15%;top:0;height:190px;width:170px}.floating-pill{right:10%;bottom:6px}.featured-grid,.game-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.featured-grid .featured-card:last-child{display:block}.featured-card{min-height:170px}.main-section{padding:45px 0}.browse{padding-bottom:65px}.steps{grid-template-columns:1fr}.step{padding:20px}.cta-box{flex-direction:column;align-items:flex-start}.cta-box .btn{width:100%}.mode-row{gap:6px}}
+@media(max-width:440px){.logo{font-size:18px}.nav-cta{padding:9px 11px}.hero{padding-top:40px}h1{font-size:44px}.hero-stats{gap:15px}.hero-visual{min-height:180px}.deck{width:180px;height:185px}.deck-behind{width:155px;height:165px}.featured-grid,.game-grid{grid-template-columns:1fr 1fr;gap:10px}.featured-card{min-height:156px}.featured-content{left:10px;right:10px}.featured-content strong{font-size:15px}.game-title{font-size:15px}.game-body{padding:11px;gap:8px}.game-desc{font-size:12px;min-height:83px}.game-bottom{align-items:flex-start;flex-direction:column}.copy-btn{width:100%;padding:9px}.pill{font-size:9px}.genre{font-size:10px}.game-image .corner{font-size:9px}.panel{padding:12px}.tabs .tab{font-size:12px;padding:9px 10px}.filters select{width:100%}.section-header h2{font-size:30px}.cta-box{padding:24px}}
+@media(max-width:340px){.featured-grid,.game-grid{grid-template-columns:1fr}.game-desc{min-height:0}.game-bottom{flex-direction:row}.copy-btn{width:auto}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+
+/* Pięć gier wybranych w sekcji Polecane */
+@media(min-width:1100px){.featured-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.featured-card{min-height:216px}}
+@media(min-width:731px) and (max-width:1099px){.featured-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.featured-grid .featured-card:last-child{display:block}}
+.featured-card .cover-placeholder{z-index:-1}
+.featured-card img{z-index:0}
+
+/* Grafiki awaryjne również w górnym banerze, kiedy obrazy Steam nie działają. */
+.deck{background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20640%20720%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22sky%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23143b58%22%2F%3E%3Cstop%20offset%3D%22.65%22%20stop-color%3D%22%232b607d%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23122c40%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22640%22%20height%3D%22720%22%20fill%3D%22url%28%23sky%29%22%2F%3E%3Ccircle%20cx%3D%22460%22%20cy%3D%22160%22%20r%3D%2262%22%20fill%3D%22%23b4dfca%22%20opacity%3D%22.8%22%2F%3E%3Cpath%20d%3D%22M0%20360%2095%20290%20155%20345%20260%20260%20360%20330%20430%20225%20560%20345%20640%20270V720H0%22%20fill%3D%22%23205b5c%22%2F%3E%3Cpath%20d%3D%22M0%20450%20120%20400%20260%20460%20390%20345%20520%20425%20640%20390V720H0%22%20fill%3D%22%231b5345%22%2F%3E%3Cpath%20d%3D%22M0%20545%2090%20500%20185%20550%20310%20460%20445%20510%20550%20465%20640%20485V720H0%22%20fill%3D%22%23173f35%22%2F%3E%3Cpath%20d%3D%22M0%20600%20100%20585%20185%20595%20270%20558%20340%20570%20450%20548%20570%20560%20640%20540V720H0%22%20fill%3D%22%23224b35%22%2F%3E%3Crect%20y%3D%22631%22%20width%3D%22640%22%20height%3D%2289%22%20fill%3D%22%231c2a2d%22%2F%3E%3Cpath%20d%3D%22M40%20628V500m-35%2055h80m-26-23-39%2040%22%20stroke%3D%22%23132d24%22%20stroke-width%3D%2219%22%2F%3E%3Cpath%20d%3D%22M533%20615V412m-55%2067h105m-81-33%2047%2055%22%20stroke%3D%22%23112e24%22%20stroke-width%3D%2223%22%2F%3E%3C%2Fsvg%3E");background-size:cover;background-position:center}
+.deck-behind{background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20640%20720%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22bg%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%234a3284%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2318283d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22640%22%20height%3D%22720%22%20fill%3D%22url%28%23bg%29%22%2F%3E%3Cg%20transform%3D%22translate%28325%20345%29%20rotate%28-19%29%22%3E%3Cellipse%20rx%3D%22168%22%20ry%3D%22238%22%20fill%3D%22%23202b62%22%20stroke%3D%22%239ce4f5%22%20stroke-width%3D%2224%22%2F%3E%3Cellipse%20rx%3D%22138%22%20ry%3D%22210%22%20fill%3D%22%2322254f%22%20stroke%3D%22%23b99bff%22%20stroke-width%3D%2223%22%2F%3E%3Cellipse%20rx%3D%22104%22%20ry%3D%22180%22%20fill%3D%22%2355c1d2%22%20opacity%3D%22.5%22%2F%3E%3Cellipse%20rx%3D%2272%22%20ry%3D%22143%22%20fill%3D%22%23c2e6ea%22%20opacity%3D%22.22%22%2F%3E%3C%2Fg%3E%3Cpath%20d%3D%22M0%20620h640M0%20660h640%22%20stroke%3D%22%23a1d1e9%22%20stroke-opacity%3D%22.22%22%20stroke-width%3D%224%22%2F%3E%3C%2Fsvg%3E");background-size:cover;background-position:center}
+.featured-card img[src^="data:"]{object-position:left center}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="container header-wrap">
+<a class="logo" href="#start" aria-label="Gramy Razem — początek strony"><span class="logo-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 8h11.6a3.8 3.8 0 0 1 3.7 3l1 5a2.4 2.4 0 0 1-3.7 2.5l-3-2.2H8.2l-3 2.2A2.4 2.4 0 0 1 1.5 16l1-5A3.8 3.8 0 0 1 6.2 8Z"/><path d="M7 11v5M4.5 13.5h5M16 12.5h.01M19 14.5h.01"/></svg></span><span>GRAMY<span>RAZEM</span></span></a>
+<nav class="nav-right" aria-label="Nawigacja"><a href="#propozycje">Polecane</a><a href="#biblioteka">Biblioteka</a><a class="nav-cta" href="#jak-gramy">Jak zagrać?</a></nav>
+</div></header>
+<main id="start">
+<section class="hero"><div class="container hero-layout"><div>
+<div class="eyebrow"><span class="pulse"></span> BIBLIOTEKA GIER WALDKA • ZAGRAJ RAZEM</div>
+<h1>Waldek ma te gry.<br><em>Zagraj z nim!</em></h1>
+<p class="hero-copy">Waldek posiada dużą bibliotekę gier — od kooperacyjnych przygód po strategie, survival i drużynowe mecze. Zobacz, w co możesz zagrać z Waldkiem, wybierz tytuł i zaproponuj wspólną rozgrywkę! Gry z zakładki „Warto kupić” są dopiero na jego liście życzeń.</p>
+<div class="actions"><a class="btn btn-main" href="#biblioteka">🎮 Zagraj z Waldkiem <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="#jak-gramy">❓ Jak to działa</a></div>
+<div class="hero-stats" aria-label="Statystyki biblioteki"><div class="stat"><strong id="stat-owned">195</strong><small>gier, które ma Waldek</small></div><div class="stat-separator"></div><div class="stat"><strong id="stat-coop">—</strong><small>oznaczonych jako co-op</small></div><div class="stat-separator"></div><div class="stat"><strong id="stat-buy">11</strong><small>na liście życzeń</small></div></div>
+</div><div class="hero-visual" aria-hidden="true"><div class="hero-glow"></div><div class="deck-behind"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/620/library_600x900.jpg" alt="" onerror="this.style.display='none'"></div><div class="deck"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/105600/library_600x900.jpg" alt="" onerror="this.style.display='none'"><div class="deck-veil"></div><div class="deck-title"><span class="deck-label">Wspólna przygoda</span>Nowy świat.<br>Jedna ekipa.</div></div><div class="floating-pill">✦ <span>CO-OP</span> &amp; MULTIPLAYER</div></div>
+</div></section>
+<section id="propozycje" class="main-section"><div class="container"><div class="section-header"><div><span class="section-tag">OD CZEGO ZACZĄĆ?</span><h2>Na dobry wspólny wieczór z Waldkiem.</h2><p>Pięć gier wybranych przez Waldka — kliknij okładkę, aby zobaczyć szczegóły.</p></div></div><div class="featured-grid" id="featured" aria-label="Wybrane gry"></div></div></section>
+<section id="biblioteka" class="browse"><div class="container"><div class="browse-heading"><span class="section-tag">GRY WALDKA</span><h2>Wybierz grę i zagraj z Waldkiem.</h2><p>W zakładce „Waldek posiada” są jego gry, a w „Warto kupić” — propozycje na przyszłość. Każda karta zawiera krótki opis i tryb rozgrywki.</p></div>
+<div class="panel"><div class="tabs" role="tablist" aria-label="Rodzaj listy"><button type="button" class="tab" role="tab" aria-selected="true" id="tab-own" data-tab="own">🎮 Waldek posiada <span class="count" id="count-own"></span></button><button type="button" class="tab" role="tab" aria-selected="false" id="tab-buy" data-tab="buy">✦ Warto kupić <span class="count" id="count-buy"></span></button></div>
+<div class="filters"><label class="search-box"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.8" cy="10.8" r="7"/><path d="m16.5 16.5 5 5"/></svg><input type="search" id="search" placeholder="Szukaj tytułu gry..." aria-label="Szukaj tytułu gry" autocomplete="off"></label><select id="genre" aria-label="Filtruj według gatunku"><option value="all">Wszystkie gatunki</option><option value="sh">Strzelanki</option><option value="su">Survival</option><option value="rp">RPG i akcja</option><option value="st">Strategie</option><option value="si">Symulacje</option><option value="pa">Imprezowe</option><option value="rc">Wyścigi i sport</option></select><select id="sort" aria-label="Sortowanie gier"><option value="coop">Najpierw co-op</option><option value="name">Alfabetycznie A–Z</option></select></div>
+<div class="mode-row" role="group" aria-label="Rodzaj rozgrywki"><button type="button" class="mode-btn" data-mode="all" aria-pressed="true">Wszystkie</button><button type="button" class="mode-btn" data-mode="coop" aria-pressed="false">🤝 Kooperacja</button><button type="button" class="mode-btn" data-mode="pvp" aria-pressed="false">⚡ Rywalizacja / PvP</button><button type="button" class="mode-btn" data-mode="multi" aria-pressed="false">🌐 Multiplayer</button><button type="button" class="mode-btn" data-mode="check" aria-pressed="false">❔ Sprawdź tryb</button></div></div>
+<div class="list-info"><span id="result-text" role="status" aria-live="polite">Wczytywanie gier…</span><span class="legend" title="Tryby oznaczone orientacyjnie"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5h.01"/></svg> Tryby są orientacyjne · gdy gra nie ma okładki, pojawia się grafika zastępcza</span></div>
+<div class="game-grid" id="game-grid" aria-label="Lista gier"></div><div class="more-wrap"><button type="button" id="more" class="btn btn-outline" hidden>Pokaż kolejne gry ↓</button></div>
+</div></section>
+<section class="how-section" id="jak-gramy"><div class="container"><span class="section-tag">JAK ZAGRAĆ RAZEM?</span><h2>To naprawdę proste.</h2><p class="intro">Nie musisz przeglądać setek tytułów w ciemno. Znajdź grę, która Cię interesuje, i zaproponuj wspólną sesję.</p><div class="steps"><article class="step"><div class="step-n">01</div><h3>Wybierz tytuł</h3><p>Przejrzyj okładki i krótkie opisy albo wybierz filtr „Kooperacja”, by zobaczyć gry do wspólnego przechodzenia.</p></article><article class="step"><div class="step-n">02</div><h3>Sprawdź tryb</h3><p>Na każdej karcie widać, czy to co-op, PvP czy multiplayer. Przy starszych tytułach sprawdź też dostępność serwerów.</p></article><article class="step"><div class="step-n">03</div><h3>Zaproś Waldka</h3><p>Kliknij „Zaproponuj grę”, skopiuj gotową wiadomość i wyślij ją Waldkowi.</p></article></div></div></section>
+<section class="cta-band"><div class="container"><div class="cta-box"><div><span class="section-tag">ZAGRAJ Z WALDKIEM!</span><h2>Wybierz grę i zaproś Waldka!</h2><p>Nie widzisz swojego ulubionego tytułu? Możesz też zaproponować Waldkowi inną grę.</p></div><button class="btn btn-main" type="button" id="copy-general">📋 Skopiuj wiadomość</button></div></div></section>
+</main><footer><div class="container footer-inner"><span>© Gramy Razem z Waldkiem · Lista gier do wspólnej zabawy</span><span>Grafiki promocyjne pochodzą z CDN Steam; prawa należą do właścicieli gier. Witryna nie jest powiązana ze Steam.</span></div></footer>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<script>
+'use strict';
+let G=[];
+const GENRE={sh:'Strzelanki',st:'Strategie',rp:'RPG i akcja',su:'Survival',rc:'Wyścigi / sport',pa:'Imprezowe',si:'Symulacje'};
+const TONES={sh:'#563246',st:'#293c6b',rp:'#47316c',su:'#31543e',rc:'#59442a',pa:'#584170',si:'#255764'};
+const MODES={coop:'🤝 Kooperacja',pvp:'⚡ PvP / rywalizacja',multi:'🌐 Multiplayer',check:'❔ Tryb do sprawdzenia'};
+const order={coop:0,multi:1,pvp:2,check:3};
+const state={tab:'own',mode:'all',genre:'all',q:'',sort:'coop',limit:24};
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
+function normalize(s){return String(s).toLocaleLowerCase('pl').normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
+// Steam w nowych tytułach stosuje też zahaszowane ścieżki z grafikami.
+// Każda karta ma zapasowe CDN, a na końcu zawsze grafikę SVG z tytułem.
+function coverCandidates(g){
+ const urls=[];
+ if(g.img)urls.push(g.img);
+ if(g.id){
+  const f='https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/'+g.id+'/';
+  urls.push(f+'header.jpg',f+'capsule_616x353.jpg',
+   'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/'+g.id+'/header.jpg',
+   'https://cdn.cloudflare.steamstatic.com/steam/apps/'+g.id+'/header.jpg');
+ }
+ if(g.imgAlt)urls.push(g.imgAlt);
+ return [...new Set(urls)];
+}
+const gamepad='<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="17" width="30" height="17" rx="8"/><path d="M17 21v9M12.5 25.5h9M29 24h.1M33 28h.1"/></svg>';
+function initials(name){return name.replace(/^(the|warhammer|tom clancy’s)\s+/i,'').split(/\s+/).slice(0,2).map(x=>x.charAt(0)).join('').toUpperCase()||'G'}
+// Jeśli gra nie ma zdjęcia Steam lub CDN go nie zwróci, używamy estetycznej grafiki zastępczej.
+function svgFallback(g){
+ const c=TONES[g.g]||'#344661',ini=esc(initials(g.n)),name=g.n.length>34?g.n.slice(0,32)+'…':g.n;
+ const lines=name.length>19?name.split(' ').reduce((acc,w)=>{if(!acc.length||acc[acc.length-1].length+w.length>20)acc.push(w);else acc[acc.length-1]+=' '+w;return acc},[]).slice(0,2):[name];
+ const txt=lines.map((l,i)=>'<text x="320" y="'+(252+i*30)+'" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="'+(l.length>21?21:25)+'" font-weight="bold">'+esc(l)+'</text>').join('');
+ const svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360"><defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="'+c+'"/><stop offset="1" stop-color="#0d1424"/></linearGradient><pattern id="p" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".07"/></pattern></defs><rect width="640" height="360" fill="url(#g)"/><rect width="640" height="360" fill="url(#p)"/><circle cx="580" cy="40" r="130" fill="#fff" opacity=".06"/><rect x="270" y="52" width="100" height="100" rx="26" fill="#b9f16a"/><text x="320" y="122" text-anchor="middle" fill="#0b1320" font-family="Arial,sans-serif" font-size="'+(ini.length>1?44:52)+'" font-weight="bold">'+ini+'</text>'+txt+'<text x="320" y="326" text-anchor="middle" fill="#c9d2e4" font-family="Arial,sans-serif" font-size="12" letter-spacing="2">BRAK OKŁADKI • '+esc((GENRE[g.g]||'GRA').toUpperCase())+'</text></svg>';
+ return 'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg);
+}
+function imageTag(g,featured=false){
+ const sources=coverCandidates(g),imageSrc=sources[0]||svgFallback(g),rest=sources.slice(1);
+ return '<img loading="lazy" decoding="async" src="'+imageSrc+'"'+(rest.length?' data-srcs="'+esc(rest.join('|'))+'"':'')+' data-fallback="'+svgFallback(g)+'" alt="'+(sources.length?'Okładka gry ':'Grafika zastępcza gry ')+esc(g.n)+'" onerror="tryImageFallback(this)">';}
+function imageHtml(g){return '<div class="game-image" style="--tone:'+TONES[g.g]+'">'+imageTag(g)+(g.s==='ended'?'<span class="corner corner-ended">SERWERY WYŁĄCZONE</span>':g.s==='soon'?'<span class="corner">ZAPOWIEDZIANA</span>':g.t==='buy'?'<span class="corner">NA LIŚCIE ŻYCZEŃ</span>':'')+'</div>';}
+function tryImageFallback(img){
+ const queued=(img.dataset.srcs||'').split('|').filter(Boolean);
+ if(queued.length){
+  img.src=queued.shift();
+  if(queued.length)img.dataset.srcs=queued.join('|');else delete img.dataset.srcs;
+ }else if(img.dataset.fallback){
+  img.src=img.dataset.fallback;delete img.dataset.fallback;img.alt='Brak okładki gry';
+ }else{img.classList.add('failed')}
+}
+function gameCard(g){let storeLink=g.id&&g.n!=='Governor of Poker'&&g.n!=="Liar's Bar"&&g.s!=='ended'?'<a class="small-link" href="https://store.steampowered.com/app/'+g.id+'/" target="_blank" rel="noopener noreferrer" aria-label="Zobacz '+esc(g.n)+' na Steam (otwiera nową kartę)">Steam ↗</a>':'<span class="genre">Gra z listy Waldka</span>';
+return '<article class="game-card">'+imageHtml(g)+'<div class="game-body"><div class="game-meta"><span class="pill '+g.m+'">'+MODES[g.m]+'</span><span class="genre">'+GENRE[g.g]+'</span></div><h3 class="game-title">'+esc(g.n)+'</h3><p class="game-desc">'+esc(g.d)+'</p>'+(g.p?'<div class="game-footnote">👥 '+esc(g.p)+'</div>':'')+'<div class="game-bottom">'+storeLink+'<button class="copy-btn" type="button" data-invite="'+esc(g.n)+'" aria-label="Skopiuj propozycję zagrania w '+esc(g.n)+'">Zaproponuj grę</button></div></div></article>';
+}
+function featuredCard(g){return '<a class="featured-card" href="#biblioteka" data-feature="'+esc(g.n)+'" style="background:linear-gradient(135deg,'+TONES[g.g]+',#111c2a)">'+imageTag(g,true)+'<div class="featured-content"><span class="pill '+g.m+'">'+MODES[g.m]+'</span><strong>'+esc(g.n)+'</strong><small>Sprawdź opis →</small></div></a>'}
+function currentList(){let rows=G.filter(g=>g.t===state.tab&&(state.genre==='all'||g.g===state.genre)&&(state.mode==='all'||g.m===state.mode)&&(!state.q||normalize(g.n).includes(normalize(state.q))||normalize(g.d).includes(normalize(state.q))));
+ rows.sort((a,b)=>state.sort==='coop'?order[a.m]-order[b.m]||a.n.localeCompare(b.n,'pl'):a.n.localeCompare(b.n,'pl'));return rows;}
+function render(){let rows=currentList(),subset=rows.slice(0,state.limit);
+ document.getElementById('game-grid').innerHTML=subset.length?subset.map(gameCard).join(''):'<div class="empty"><strong>Nic tu nie pasuje</strong><p>Spróbuj wpisać inną nazwę lub wyczyść filtry.</p><button class="btn btn-main" type="button" id="reset">Wyczyść filtry</button></div>';
+ document.getElementById('result-text').innerHTML='Pokazuję <strong>'+subset.length+'</strong> z <strong>'+rows.length+'</strong> gier';
+ const more=document.getElementById('more');more.hidden=subset.length>=rows.length;more.textContent='Pokaż kolejne gry ('+(rows.length-subset.length)+') ↓';
+ for(const tab of document.querySelectorAll('[data-tab]')){const active=tab.dataset.tab===state.tab;tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1}
+ for(const mode of document.querySelectorAll('[data-mode]'))mode.setAttribute('aria-pressed',String(mode.dataset.mode===state.mode));
+}
+function boot(){
+const count=(tab)=>G.filter(g=>g.t===tab).length;
+document.getElementById('stat-owned').textContent=count('own');document.getElementById('stat-buy').textContent=count('buy');document.getElementById('stat-coop').textContent=G.filter(g=>g.m==='coop').length;document.getElementById('count-own').textContent='('+count('own')+')';document.getElementById('count-buy').textContent='('+count('buy')+')';
+const fav=['PUBG: BATTLEGROUNDS','Warhammer: Vermintide 2','ARK: Survival Evolved','Borderlands 2','Alien Swarm: Reactive Drop'];document.getElementById('featured').innerHTML=fav.map(n=>featuredCard(G.find(g=>g.n===n))).join('');
+render();
+}
+document.querySelector('.tabs').addEventListener('click',e=>{const el=e.target.closest('[data-tab]');if(!el)return;state.tab=el.dataset.tab;state.limit=24;render()});
+document.querySelector('.mode-row').addEventListener('click',e=>{const el=e.target.closest('[data-mode]');if(!el)return;state.mode=el.dataset.mode;state.limit=24;render()});
+document.getElementById('search').addEventListener('input',e=>{state.q=e.target.value.trim();state.limit=24;render()});
+document.getElementById('genre').addEventListener('change',e=>{state.genre=e.target.value;state.limit=24;render()});
+document.getElementById('sort').addEventListener('change',e=>{state.sort=e.target.value;render()});
+document.getElementById('more').addEventListener('click',()=>{state.limit+=24;render()});
+document.getElementById('game-grid').addEventListener('click',e=>{const reset=e.target.closest('#reset');if(reset){state.mode='all';state.genre='all';state.q='';state.limit=24;document.getElementById('search').value='';document.getElementById('genre').value='all';render();return}const el=e.target.closest('[data-invite]');if(el)copyInvite(el.dataset.invite)});
+document.getElementById('featured').addEventListener('click',e=>{const el=e.target.closest('[data-feature]');if(!el)return;state.tab='own';state.mode='all';state.genre='all';state.q=el.dataset.feature;state.limit=24;document.getElementById('search').value=state.q;document.getElementById('genre').value='all';render()});
+document.getElementById('copy-general').addEventListener('click',()=>copyInvite(''));
+let toastTimer;
+function showToast(msg){const toast=document.getElementById('toast');toast.textContent=msg;toast.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>{toast.hidden=true},3300)}
+function copyInvite(game){const text=game?'Hej Waldku! Chętnie zagram z Tobą w '+game+'. Kiedy możemy zagrać? 🎮':'Hej Waldku! Widziałem Twoją listę Gramy Razem. Może wybierzemy jakąś grę i zagramy razem? 🎮';
+ if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(()=>showToast('Skopiowano propozycję gry!')).catch(()=>fallbackCopy(text))}else fallbackCopy(text)}
+function fallbackCopy(text){const el=document.createElement('textarea');el.value=text;el.style.position='fixed';el.style.opacity='0';document.body.appendChild(el);el.focus();el.select();let ok=false;try{ok=document.execCommand('copy')}catch(e){}el.remove();showToast(ok?'Skopiowano propozycję gry!':'Nie udało się skopiować — zaznacz wiadomość ręcznie.');if(!ok)window.prompt('Skopiuj tę wiadomość:',text)}
+document.getElementById('game-grid').innerHTML='<div class="empty"><strong>Wczytywanie gier…</strong></div>';
+fetch('games.json').then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(d=>{G=d;boot()}).catch(()=>{
+ document.getElementById('result-text').textContent='';
+ document.getElementById('game-grid').innerHTML='<div class="empty"><strong>Nie udało się wczytać listy gier</strong><p>Plik games.json musi leżeć obok index.html. Strona działa na GitHub Pages lub serwerze, a nie po otwarciu pliku z dysku.</p></div>';
+});
+
+</script>
+</body>
+</html>
